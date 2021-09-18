@@ -1,0 +1,60 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body: SafeArea(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                buildElevatedButton(text: "Your Text",width: 300.0,height: 50.0,color1:Color(0xffe15084),color2: Color(0xff245587)),
+                buildElevatedButton(text: "Your Text",width: 300.0,height: 50.0,color1:Color(0xff7b3eec),color2: Color(0xffab22fd)),
+                buildElevatedButton(text: "Your Text",width: 300.0,height: 50.0,color1:Color(0xffb927ff),color2: Color(0xffd6407c)),
+                buildElevatedButton(text: "Your Text",width: 300.0,height: 50.0,color1:Color(0xff11ead7),color2: Color(0xff3579f8)),
+                buildElevatedButton(text: "Your Text",width: 300.0,height: 50.0,color1:Color(0xff4a70f7),color2: Color(0xffa31efc)),
+                buildElevatedButton(text: "Your Text",width: 300.0,height: 50.0,color1:Color(0xff4d78bf),color2: Color(0xff2d388b)),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  ElevatedButton buildElevatedButton({text,width=300.0,height=50.0,color1,color2}) {
+    return ElevatedButton(
+      onPressed: () {},
+      style: ElevatedButton.styleFrom(
+        padding: EdgeInsets.all(0.0),
+        primary: Colors.transparent,
+        onPrimary: Colors.red,
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
+      ),
+      child: Ink(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [color1, color2],
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+            ),
+            borderRadius: BorderRadius.circular(30.0)),
+        child: Container(
+          width: width,
+          height: height,
+          alignment: Alignment.center,
+          child: Text(text, style: TextStyle(color: Colors.white),
+          ),
+        ),
+      ),
+    );
+  }
+}
